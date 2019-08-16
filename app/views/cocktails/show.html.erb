@@ -1,0 +1,20 @@
+<div class="banner" id="show" style="background-image: linear-gradient(rgba(2, 26, 58, 0.5), rgba(2, 26, 58, 0.5)), url('https://cdn.diffords.com/contrib/encyclopedia/2018/12/5c0fc8281d819.jpg');">
+  <h1><%= @cocktail.name %></h1>
+  <ul>
+  <% @cocktail.doses.each do |d|  %>
+    <li><%= d.ingredient.name %> : <%= d.description %> | <%= link_to "Delete", dose_path(d), method: :delete, data: { confirm: "Are you sure?" }  %></li>
+  <% end %>
+  </ul>
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+  <div class="form-row">
+    <h2>Ingredient</h2>
+    <%= f.input :ingredient_id, label: false, collection: @ingredients %>
+  </div>
+  <div class="form-row">
+    <h2> description </h2>
+    <%= f.input :description, label: false  %>
+  </div>
+    <%= f.submit "Add dose"%>
+  <% end %>
+  <h2><%= link_to "Back to cocktail list", cocktails_path %></h2>
+</div>

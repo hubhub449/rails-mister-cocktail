@@ -1,0 +1,12 @@
+<div class="banner" style="background-image: linear-gradient(rgba(2, 26, 58, 0.5), rgba(2, 26, 58, 0.5)), url('https://cdn.diffords.com/contrib/encyclopedia/2018/12/5c0fc8281d819.jpg');">
+        <%= simple_form_for [@cocktail], defaults: { input_html: { class: 'new-form' } } do |f| %>
+        <div class="form-row">
+          <h2> Choose the name </h2>
+          <%= f.input :name, label: false %>
+        </div>
+        <div class="form-row">
+          <h2> Describe it </h2>
+        </div>
+          <%= f.submit "Add cocktail", input_html: { class: 'form-submit' } %>
+        <% end %>
+</div>
